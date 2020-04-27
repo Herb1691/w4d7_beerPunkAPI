@@ -13,4 +13,8 @@ export class DataService {
     return await this.apiService.get();
   }
 
+  async getRandomBeer(): Promise<IBeer> {
+    return await this.apiService.getRandom();
+  }
+
 }

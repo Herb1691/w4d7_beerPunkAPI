@@ -2,7 +2,7 @@ export interface IBeer {
     id: number;
     name: string;
     tagline: string;
-    firstBrewed: Date;
+    first_brewed: string;
     description: string;
-    imageUrl: '';
+    image_url: string;
 }
