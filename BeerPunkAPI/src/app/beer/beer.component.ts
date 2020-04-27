@@ -11,17 +11,20 @@ import { IBeer } from '../interfaces/ibeer';
 })
 export class BeerComponent implements OnInit {
 
-  beer: Array<IBeer>;
+  beer: Array<string>;
   message: string;
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-  dataSource = new MatTableDataSource(this.beer);
+  displayedColumns: string[] = ['id', 'name', 'tagline', 'firstBrewed', 'description', 'imageUrl'];
+  dataSource: MatTableDataSource<IBeer>;
+
+  // dataSource = new MatTableDataSource(this.beer);
 
   constructor(private dataService: DataService) { }
 
   async ngOnInit() {
-    this.message = JSON.stringify(await this.dataService.getBeers());
-    this.beer = JSON.parse(this.message);
+    this.dataSource = new MatTableDataSource( await this.dataService.getBeers());
+    // this.message = JSON.stringify(await this.dataService.getBeers());
+    // this.beer = JSON.parse(this.message);
   }
 
 
