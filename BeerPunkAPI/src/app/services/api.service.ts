@@ -15,6 +15,6 @@ export class ApiService {
   }
 
   async getRandom() {
-    return this.httpClient.get<IBeer>('${this.BEER_URL}/random').toPromise();
+    return this.httpClient.get<IBeer>(`${this.BEER_URL}/random`).toPromise();
   }
 }
